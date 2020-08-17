@@ -1,0 +1,13 @@
+demo/
+docs/
+test/
+images/
+
+*.ts
+!*.d.ts
+
+jest.config.js
+README.md
+# CDK asset staging directory
+.cdk.staging
+cdk.out

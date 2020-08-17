@@ -1,13 +1,5 @@
-# AWS ECR Proxy
-
-**AWS ECR Proxy** is a CDK construct library based on [monken/aws-ecr-public](https://github.com/monken/aws-ecr-public).
-
-![diagram](docs/aws-ecr-public.svg)
-
-
-## Usage
-
-```ts
+#!/usr/bin/env node
+import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { ServerlessEcrProxy, ApiGatewayVersion } from 'serverless-ecr-proxy';
 
@@ -27,4 +19,4 @@ new ServerlessEcrProxy(stack, 'Service', {
     registryId,
     apiGatewayVersion: ApiGatewayVersion.HTTP_API,
 });
-```
+
