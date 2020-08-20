@@ -18,17 +18,6 @@
       "python": {
         "distName": "tuna.aws-ecr-proxy",
         "module": "tuna.aws_ecr_proxy"
-      },
-      "java": {
-        "package": "moe.tuna.aws-ecr-proxy",
-        "maven": {
-          "groupId": "moe.tuna",
-          "artifactId": "aws-ecr-proxy"
-        }
-      },
-      "dotnet": {
-        "namespace": "Tuna.AwsEcrProxyNamespace",
-        "packageId": "Tuna.AwsEcrProxyPackage"
       }
     }
   },
