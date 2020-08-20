@@ -44,14 +44,14 @@ export interface ServerlessEcrProxyProps {
    readonly domain?: apigateway.DomainNameOptions
 }
 
-export interface ECRProxy {
+export interface IECRProxy {
   /**
    * Endpoint of ECR proxy.
    */
   readonly endpoint: string;
 }
 
-export class ApigatewayHttpApi extends cdk.Resource implements ECRProxy {
+export class ApigatewayHttpApi extends cdk.Resource implements IECRProxy {
 
   // for API Gateway HTTP API(v2)
   readonly api: IHttpApi;
@@ -85,7 +85,7 @@ export interface ApiProps {
   readonly logGroup?: LogGroup,
 }
 
-export class ApigatewayRestApi extends cdk.Resource implements ECRProxy {
+export class ApigatewayRestApi extends cdk.Resource implements IECRProxy {
   // for API Gateway REST API(v1)
   readonly api: apigateway.RestApi;
   readonly endpoint: string;
@@ -110,7 +110,7 @@ export class ApigatewayRestApi extends cdk.Resource implements ECRProxy {
 }
 
 export class ServerlessEcrProxy extends cdk.Resource{
-  readonly ecrProxy: ECRProxy
+  readonly ecrProxy: IECRProxy
   constructor(scope: cdk.Construct, id: string, props: ServerlessEcrProxyProps) {
     super(scope, id);
 

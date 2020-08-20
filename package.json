@@ -52,13 +52,15 @@
     "@aws-cdk/aws-certificatemanager": "^1.41.0",
     "@aws-cdk/aws-lambda": "^1.41.0",
     "@aws-cdk/aws-route53": "^1.41.0",
-    "@aws-cdk/aws-route53-targets": "^1.41.0"
+    "@aws-cdk/aws-route53-targets": "^1.41.0",
+    "@aws-cdk/aws-logs": "^1.41.0"
   },
   "dependencies": {
     "@aws-cdk/aws-apigateway": "^1.41.0",
     "@aws-cdk/aws-apigatewayv2": "^1.41.0",
     "@aws-cdk/aws-certificatemanager": "^1.41.0",
     "@aws-cdk/aws-lambda": "^1.41.0",
+    "@aws-cdk/aws-logs": "^1.41.0",
     "@aws-cdk/aws-route53": "^1.41.0",
     "@aws-cdk/aws-route53-targets": "^1.41.0",
     "@aws-cdk/core": "^1.41.0"
