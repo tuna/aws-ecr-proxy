@@ -1,4 +1,4 @@
-import { expect as expectCDK, haveResource, SynthUtils } from '@aws-cdk/assert';
+import { expect as expectCDK, haveResource } from '@aws-cdk/assert';
 import { LogGroup } from '@aws-cdk/aws-logs';
 import * as cdk from '@aws-cdk/core';
 import * as CdkLib from '../lib/index';

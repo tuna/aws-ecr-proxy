@@ -62,6 +62,5 @@ export declare class ApigatewayRestApi extends cdk.Resource implements ECRProxy 
 }
 export declare class ServerlessEcrProxy extends cdk.Resource {
     readonly ecrProxy: ECRProxy;
-    private readonly _apiGatewayVersion;
     constructor(scope: cdk.Construct, id: string, props: ServerlessEcrProxyProps);
 }

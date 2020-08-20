@@ -5,11 +5,32 @@
   "main": "lib/index.js",
   "ts:main": "lib/index.ts",
   "types": "lib/index.d.ts",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
     "git-index": "git add lib/."
+  },
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "python": {
+        "distName": "tuna.aws-ecr-proxy",
+        "module": "tuna.aws_ecr_proxy"
+      },
+      "java": {
+        "package": "moe.tuna.aws-ecr-proxy",
+        "maven": {
+          "groupId": "moe.tuna",
+          "artifactId": "aws-ecr-proxy"
+        }
+      },
+      "dotnet": {
+        "namespace": "Tuna.AwsEcrProxyNamespace",
+        "packageId": "Tuna.AwsEcrProxyPackage"
+      }
+    }
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.41.0",
@@ -17,13 +38,21 @@
     "@types/node": "10.17.5",
     "aws-cdk": "1.41.0",
     "jest": "^25.3.0",
+    "jsii": "^1.11.0",
+    "jsii-pacmak": "^1.11.0",
     "pre-commit": "^1.2.2",
     "ts-jest": "^25.3.1",
     "ts-node": "^8.1.0",
     "typescript": "~3.7.2"
   },
   "peerDependencies": {
-    "@aws-cdk/core": "^1.41.0"
+    "@aws-cdk/core": "^1.41.0",
+    "@aws-cdk/aws-apigateway": "^1.41.0",
+    "@aws-cdk/aws-apigatewayv2": "^1.41.0",
+    "@aws-cdk/aws-certificatemanager": "^1.41.0",
+    "@aws-cdk/aws-lambda": "^1.41.0",
+    "@aws-cdk/aws-route53": "^1.41.0",
+    "@aws-cdk/aws-route53-targets": "^1.41.0"
   },
   "dependencies": {
     "@aws-cdk/aws-apigateway": "^1.41.0",
@@ -32,8 +61,14 @@
     "@aws-cdk/aws-lambda": "^1.41.0",
     "@aws-cdk/aws-route53": "^1.41.0",
     "@aws-cdk/aws-route53-targets": "^1.41.0",
-    "@aws-cdk/core": "^1.41.0",
-    "source-map-support": "^0.5.16"
+    "@aws-cdk/core": "^1.41.0"
+  },
+  "author": {
+    "name": "TUNA Authors"
+  },
+  "repository": {
+    "url": "https://github.com/tuna/aws-ecr-proxy",
+    "type": "git"
   },
   "pre-commit": [
     "build",

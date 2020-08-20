@@ -67,7 +67,7 @@ export class ApigatewayHttpApi extends cdk.Resource implements ECRProxy {
       createDefaultStage: false,
     })
 
-    const stage = api.addStage('StageV2', {
+    api.addStage('StageV2', {
       autoDeploy: true,
       stageName: 'v2'
     })
@@ -111,7 +111,6 @@ export class ApigatewayRestApi extends cdk.Resource implements ECRProxy {
 
 export class ServerlessEcrProxy extends cdk.Resource{
   readonly ecrProxy: ECRProxy
-  private readonly _apiGatewayVersion: ApiGatewayVersion
   constructor(scope: cdk.Construct, id: string, props: ServerlessEcrProxyProps) {
     super(scope, id);
 
