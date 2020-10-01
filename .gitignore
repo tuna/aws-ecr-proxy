@@ -1,8 +1,11 @@
-test/*.js
-test/*.d.ts
+*.js
 !jest.config.js
+*.d.ts
 node_modules
 
 # Parcel build directories
 .cache
 .build
+
+# jsii
+dist/

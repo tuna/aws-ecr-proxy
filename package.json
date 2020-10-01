@@ -9,8 +9,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
-    "git-index": "git add lib/."
+    "test": "jest"
   },
   "jsii": {
     "outdir": "dist",
@@ -60,10 +59,5 @@
   "repository": {
     "url": "https://github.com/tuna/aws-ecr-proxy",
     "type": "git"
-  },
-  "pre-commit": [
-    "build",
-    "test",
-    "git-index"
-  ]
+  }
 }
