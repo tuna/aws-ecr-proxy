@@ -37,11 +37,11 @@ export interface ServerlessEcrProxyProps {
   /**
    * The CloudWatch log group for access log
    */
-  readonly logGroup?: LogGroup 
-   /**
-    * API Gateway domain name options for custom domain
-    */
-   readonly domain?: apigateway.DomainNameOptions
+  readonly logGroup?: LogGroup
+  /**
+   * API Gateway domain name options for custom domain
+   */
+  readonly domain?: apigateway.DomainNameOptions
 }
 
 export interface IECRProxy {
@@ -89,7 +89,7 @@ export class ApigatewayRestApi extends cdk.Resource implements IECRProxy {
   // for API Gateway REST API(v1)
   readonly api: apigateway.RestApi;
   readonly endpoint: string;
-  constructor(scope: cdk.Construct, id: string,  props: ApiProps) {
+  constructor(scope: cdk.Construct, id: string, props: ApiProps) {
     super(scope, id)
 
     this.api = new apigateway.LambdaRestApi(scope, props.name, {
@@ -99,17 +99,17 @@ export class ApigatewayRestApi extends cdk.Resource implements IECRProxy {
       },
       deployOptions: {
         stageName: 'v2',
-        accessLogDestination: props.logGroup ? 
+        accessLogDestination: props.logGroup ?
           new LogGroupLogDestination(props.logGroup) : undefined,
       },
       domainName: props?.domain,
     })
 
-    this.endpoint =  `${this.api.restApiId}.execute-api.${cdk.Stack.of(this).region}.${cdk.Stack.of(this).urlSuffix}`;
+    this.endpoint = `${this.api.restApiId}.execute-api.${cdk.Stack.of(this).region}.${cdk.Stack.of(this).urlSuffix}`;
   }
 }
 
-export class ServerlessEcrProxy extends cdk.Resource{
+export class ServerlessEcrProxy extends cdk.Resource {
   readonly ecrProxy: IECRProxy
   constructor(scope: cdk.Construct, id: string, props: ServerlessEcrProxyProps) {
     super(scope, id);
@@ -130,7 +130,7 @@ export class ServerlessEcrProxy extends cdk.Resource{
         "ecr:GetAuthorizationToken",
         "ecr:BatchCheckLayerAvailability"
       ],
-      resources: [ '*' ]
+      resources: ['*']
     }))
 
     const apiProps = {
@@ -147,10 +147,10 @@ export class ServerlessEcrProxy extends cdk.Resource{
       const restApi = new ApigatewayRestApi(this, `RestApi-${props.registryId}`, apiProps)
       this.ecrProxy = restApi
     }
-    
-    new cdk.CfnOutput(scope, `ProxyURL-${props.registryId}`, { 
+
+    new cdk.CfnOutput(scope, `ProxyURL-${props.registryId}`, {
       value: this.ecrProxy.endpoint,
-      exportName: `${cdk.Stack.of(this).stackName}-RegistryEndpoint-${props.registryId}`, 
+      exportName: `${cdk.Stack.of(this).stackName}-RegistryEndpoint-${props.registryId}`,
     })
   }
 }
